@@ -1,0 +1,29 @@
+ This version is specifically for the "Seeed Studio Round Display for XIAO"
+  https://wiki.seeedstudio.com/get_start_round_display/
+  https://www.seeedstudio.com/Seeed-Studio-Round-Display-for-XIAO-p-5638.html
+
+  Seeed Studio Round XIAO Display
+  (Adafruit GC9A01A + GFX Library)
+  --------------------------------------------
+    TFT_SCLK D8
+    TFT_MISO D9
+    TFT_MOSI D10
+    TFT_CS   D1  // Chip select control pin
+    TFT_DC   D3  // Data Command control pin
+    TFT_RST  -1  // Reset pin (could connect to RST pin)
+
+    LCD_BACKLIGHT   D6  // slide dip switch slot 2 to (KE) on the back of the Seeed Round display for backlight control
+
+  CST816S i2c Touch IC, XIAO ESP32S3 Only!!!
+  (https://github.com/fbiego/CST816S/blob/main/CST816S.h)
+  --------------------------------------------
+    TP_SDA D4
+    TP_SCL D5
+    TP_RST -1  // Same As LCD
+    TP_INT D7  // IRQ
+
+    i2c Address 0x2E
+
+  PCF8563T RTC
+  (Adafruit RTClib Library)
+  --------------------------------------------
