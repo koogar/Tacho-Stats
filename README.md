@@ -69,10 +69,25 @@ Distributed under the [GPL-2.0 License](https://www.gnu.org/licenses/old-license
 
 For more details and updates, visit the [Tacho-Stats GitHub repository](https://github.com/koogar/Tacho-Stats).
 
-Gnat-Stats, Phat-Stats, Tacho-Stats, uVolume & HardwareSerialMonitor Copyright (C) 2016-2025  Colin Conway, Rupert Hirst and contributors
+Gnat-Stats, Phat-Stats, Tacho-Stats, uVolume & HardwareSerialMonitor 
+Copyright (C) 2016  Colin Conway, Rupert Hirst and contributors
+ 
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
 
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; If not, see <http://www.gnu.org/licenses/>.
 
 ---
+
+
 
 [1]: https://github.com/koogar?utm_source=chatgpt.com "koogar (Tallman Labs) · GitHub"
 [2]: https://github.com/koogar/Tacho-Stats?utm_source=chatgpt.com "GitHub - koogar/Tacho-Stats: PC Hardware Performance Monitor for the ..."
