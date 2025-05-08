@@ -69,6 +69,9 @@ Distributed under the [GPL-2.0 License](https://www.gnu.org/licenses/old-license
 
 For more details and updates, visit the [Tacho-Stats GitHub repository](https://github.com/koogar/Tacho-Stats).
 
+Gnat-Stats, Phat-Stats, Tacho-Stats, uVolume & HardwareSerialMonitor Copyright (C) 2016-2025  Colin Conway, Rupert Hirst and contributors
+
+
 ---
 
 [1]: https://github.com/koogar?utm_source=chatgpt.com "koogar (Tallman Labs) · GitHub"
