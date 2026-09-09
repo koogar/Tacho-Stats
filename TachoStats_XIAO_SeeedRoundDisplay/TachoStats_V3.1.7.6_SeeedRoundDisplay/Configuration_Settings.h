@@ -42,14 +42,6 @@
 
 //---------------------------------------- Choose Units GHz,MHZ,GB,MB ETC -----------------------------------------------
 
-/* Characters to delete from the start of the CPU/GPU name eg: Remove "Intel" or "Nvidia" to save space*/
-#define cpuNameStartLength 19 //i5-9600k = 10 / i9-13900k = 19
-#define gpuNameStartLength 18
-
-/* CPU package power in Watts,*/
-//#define enable_cpuPowerStats // LibreHardwareMonitorLib.dll + PawnIO port only
-
-
 #define DISPLAY_CPU_CLOCK_GHZ 
 #define DISPLAY_GPU_CORE_GHZ 
 #define DISPLAY_GPU_MEMORY_GB 
@@ -58,6 +50,13 @@
 #define smallPercent  // Use small percent symbol
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//----------------------------------   CPU / GPU, ID detection   ----------------------------------------
+
+/* Characters to delete from the start of the CPU/GPU name when using default auto ID detection, eg: Remove "Intel" or "Nvidia" to save space*/
+
+#define cpuNameStartLength 19 //i5-9600k = 10 / i9-13900k = 19
+#define gpuNameStartLength 18
+
 /* Manually name the CPU,*/
 //#define Manual_cpuName
 String set_CPUname = "xxxxxx";
@@ -73,16 +72,10 @@ String set_GPUram = "xxxxxx"; //in GB
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-
 //---------------------------------------------------------------------------------------
 
-/* CPU is overclocked with Turbo boost disabled, to stop "TURBO" indicator,*/
-//#define CPU_OverClocked
-
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-
-
+/* CPU package power in Watts, not implemented*/
+//#define enable_cpuPowerStats // LibreHardwareMonitorLib.dll + PawnIO port only
 
 /* CPU & GPU Thermal Junction Max Temperature in "c" before throttling,*/
 #define CPU_TJMAX 100  //  TJ Max for the Intel 9900K    = 100c
@@ -107,18 +100,10 @@ String set_GPUram = "xxxxxx"; //in GB
 #define enable_gpuFanStatsRPM
 #define enable_gpuFanStatsPerc  // this is only displayed in Portrait!!!
 
-//----------------------------- Frequency Gains Indicator --------------------------------
-
-/* Uncomment to enable the display of frequency gains */
-#define enable_ShowFrequencyGain
-
-/* Uncomment only one of the units to display below, MHz or Percent */
-//#define ShowFrequencyGainMHz        // Show Overlock/Turbo & Boost Clock Frequency Gains in MHZ  eg: "+24MHz"
-#define ShowFrequencyGainPerc       // Show Overlock/Turbo & Boost Clock Frequency Gains in Percent  eg: "+24%"
 
 //----------------------------- Throttle/Boost Indicator --------------------------------
 
-#define enable_ThrottleIndicator // Show TJMax Indicator 
+//#define enable_ThrottleIndicator // Show TJMax Indicator 
 //#define enable_BoostIndicator    // Show CPU & GPU Turbo/Boost Indicator
 
 
@@ -142,7 +127,8 @@ volatile int brightness_count = 60; // Start Up PWM Brightness
 
 
 //-------------------------------- Misco Setting -----------------------------------------
-
+/* CPU is overclocked with Turbo boost disabled, to stop "TURBO" indicator,*/
+//#define CPU_OverClocked
 
 /* Display screen rotation  0, 1, 2 or 3 = (0, 90, 180 or 270 degrees)*/
 int ASPECT = 1; // USB socket facing the rear, Do not adjust
@@ -160,7 +146,10 @@ int TX_LED_Delay = 0; // TX blink delay, lags button
 int baudRate     = 9600; // set serial baud rate to match that of HardwareSerialMonitor 115200 will use more resources
 
 /* Delay screen event, to stop screen data corruption ESP8622 use 25, most others 5 will do*/
-int Serial_eventDelay = 5; //
+int Serial_eventDelay = 0; //
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 
 
 //--------------------------------------- Versions -----------------------------------------------------
@@ -188,4 +177,18 @@ int Serial_eventDelay = 5; //
 
 //-------------- Show Networks Stats when using Phatstats edition of WeeStatServer ---------------
 //#define enable_LibreNet // Reserved // undefine  enable_gpuCore, enable_gpuShader, enable_gpuShader first, enable_gpuPowerStats
+
+
+
 //--------------------------- Throttle/Boost Gains MHZ or % ------------------------------
+
+//----------------------------- Frequency Gains Indicator --------------------------------
+
+/* Uncomment to enable the display of frequency gains */
+//#define enable_ShowFrequencyGain
+
+/* Uncomment only one of the units to display below, MHz or Percent */
+//#define ShowFrequencyGainMHz        // Show Overlock/Turbo & Boost Clock Frequency Gains in MHZ  eg: "+24MHz"
+
+/* Broken, not working*/
+//#define ShowFrequencyGainPerc       // Show Overlock/Turbo & Boost Clock Frequency Gains in Percent  eg: "+24%"
