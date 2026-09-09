@@ -219,8 +219,8 @@ void Display_GC9A01_Port_R1() {  // Round 240x240 portrait
 
     double cpuOverclockGainPercentSum = cpuOverclockSum / (CPU_BOOST / 100); // % of gain over Stock CPU
 
-    
-   /* CPU Freq Display - telemetry remains in MHz internally; display in GHz */
+
+    /* CPU Freq Display - telemetry remains in MHz internally; display in GHz */
     double cpuClockGHz = cpuOverclockGain / 1000.0;
 
 #ifdef DISPLAY_CPU_CLOCK_GHZ
@@ -272,6 +272,27 @@ void Display_GC9A01_Port_R1() {  // Round 240x240 portrait
     tft.print(cpuOverclockGainPercentSum, 0); // Show Value in %
     tft.println ("%");
 #endif
+#endif
+
+
+
+ //------------------------------------------------CPU Power Consumption--------------------------------------------------------
+#ifdef enable_cpuPowerStats
+
+    /* CPU Power */
+    int cpuPowerStart = inputString.indexOf("CPWR") + 4;
+    int cpuPowerEnd = inputString.indexOf("|", cpuPowerStart);
+    String cpuPowerString = inputString.substring(cpuPowerStart, cpuPowerEnd);
+    //Char erase and spacing adjust, MaDerer
+    while (cpuPowerString.length() < 5) cpuPowerString = " " + cpuPowerString;
+
+    //tft.setCursor(?, ?); // (Left/Right, UP/Down)
+    //tft.setTextSize(1);
+    //tft.print(cpuPowerString); //CPU Power Watts
+
+    //tft.setTextSize(1);
+    //tft.print("w");
+
 #endif
 
     //------------------------------------------ GPU Load/Temp -------------------------------------------------
@@ -371,11 +392,25 @@ void Display_GC9A01_Port_R1() {  // Round 240x240 portrait
 #endif
 
     // GPU Frequency
+#ifdef DISPLAY_GPU_CORE_GHZ
+    /* GPU Core Clock in GHz*/
+
+    tft.setTextSize(4);
+    tft.setCursor(90 - X_Offset, 170 + Y_Offset); // (Left/Right, UP/Down)
+    double gpuCoreClockGHz = atof(gpuCoreClockString.c_str()) / 1000.0;
+    tft.print(gpuCoreClockGHz, 2);
+    tft.setTextSize(1);
+    tft.print("GHz");
+#else
+
+    /* GPU Core Clock in MHz*/
+
     tft.setTextSize(4);
     tft.setCursor(90 - X_Offset, 170 + Y_Offset); // (Left/Right, UP/Down)
     tft.print(gpuCoreClockString);
     tft.setTextSize(1);
     tft.print("MHz");
+#endif
 
     //----------------------------------------------GPU Memory Total----------------------------------------------------------
 
@@ -410,12 +445,23 @@ void Display_GC9A01_Port_R1() {  // Round 240x240 portrait
     //Char erase and spacing adjust, MaDerer
     while (gpuMemoryUsedString.length() < 4) gpuMemoryUsedString = " " + gpuMemoryUsedString;
 
+#ifdef DISPLAY_GPU_MEMORY_GB
+    // HSM telemetry supplies GPU memory in MB; display it in GB.
+    double gpuMemUsed = atof(gpuMemoryUsedString.c_str());
+    double gpuMemUsedGB = gpuMemUsed / 1024.0;
+    tft.setCursor(103 - X_Offset, 204 + Y_Offset); // (Left/Right, UP/Down)
+    tft.setTextSize(3);
+    tft.print(gpuMemUsedGB, 2);
+    tft.setTextSize(1);
+    tft.print("GB");
+#else
+    // HSM telemetry supplies GPU memory in MB;
     tft.setCursor(103 - X_Offset, 204 + Y_Offset); // (Left/Right, UP/Down)
     tft.setTextSize(3);
     tft.print(gpuMemoryUsedString); //  show values in MB
-
     tft.setTextSize(1);
     tft.print("MB");
+#endif
 
 
 

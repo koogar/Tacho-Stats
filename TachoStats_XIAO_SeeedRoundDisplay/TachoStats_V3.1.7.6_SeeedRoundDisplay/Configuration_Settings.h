@@ -39,18 +39,20 @@
 
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 //---------------------------------------- Choose Units GHz,MHZ,GB,MB ETC -----------------------------------------------
 
 /* Characters to delete from the start of the CPU/GPU name eg: Remove "Intel" or "Nvidia" to save space*/
 #define cpuNameStartLength 19 //i5-9600k = 10 / i9-13900k = 19
 #define gpuNameStartLength 18
 
+/* CPU package power in Watts,*/
+//#define enable_cpuPowerStats // LibreHardwareMonitorLib.dll + PawnIO port only
 
-#define DISPLAY_CPU_CLOCK_GHZ //done for LS, LS_180
-//#define DISPLAY_GPU_CORE_GHZ // not implemented yet
 
-
-//#define DISPLAY_GPU_MEMORY_GB //done for LS, LS_180
+#define DISPLAY_CPU_CLOCK_GHZ 
+#define DISPLAY_GPU_CORE_GHZ 
+#define DISPLAY_GPU_MEMORY_GB 
 
 #define noDegree      // lose the "o"
 #define smallPercent  // Use small percent symbol
@@ -78,6 +80,9 @@ String set_GPUram = "xxxxxx"; //in GB
 //#define CPU_OverClocked
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
 
 /* CPU & GPU Thermal Junction Max Temperature in "c" before throttling,*/
 #define CPU_TJMAX 100  //  TJ Max for the Intel 9900K    = 100c
@@ -168,7 +173,8 @@ int Serial_eventDelay = 5; //
 
    v3.1.6.RND
 
-         Add GHz for CPU
+         Add GHz/MHz for CPU, GHz/MHz for GPU, GB/MB for GPU
+         Add CPU Package Power 
 
 */
 
